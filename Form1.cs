@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
+        private double firstNumber;
+        private double secondNumber; // 新增這行，宣告 secondNumber 變數
+        private string operation;
+
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -59,11 +58,11 @@ namespace Calculator
             if (txtNumber.Text == "0")
             {
                 txtNumber.Text = "";
-            }   
+            }
             txtNumber.Text = txtNumber.Text + "2";
         }
 
-       
+
 
         private void btnThree_Click(object sender, EventArgs e)
         {
@@ -112,7 +111,7 @@ namespace Calculator
 
         private void btnEight_Click(object sender, EventArgs e)
         {
-            if(txtNumber.Text == "0")
+            if (txtNumber.Text == "0")
             {
                 txtNumber.Text = "";
             }
@@ -126,6 +125,69 @@ namespace Calculator
                 txtNumber.Text = "";
             }
             txtNumber.Text = txtNumber.Text + "9";
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtNumber.Text = "";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(txtNumber.Text);
+            txtNumber.Text = "0";
+            operation = "+"; // 修正這行，將整數 0 改為字串 "+"
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(txtNumber.Text);
+            txtNumber.Text = "0";
+            operation = "-";
+        }
+
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(txtNumber.Text);
+            txtNumber.Text = "0";
+            operation = "*";
+        }
+
+        private void btnDivide_Click(object sender, EventArgs e)
+        {
+            firstNumber = Convert.ToDouble(txtNumber.Text);
+            txtNumber.Text = "0";
+            operation = "/";
+        }
+
+        private void btnEqual_Click(object sender, EventArgs e)
+        {
+            double finalResults = 0; //宣告最後計算結果變數
+            secondNumber = Convert.ToDouble(txtNumber.Text); //將輸入文字框轉換成浮點數，存入第二個數字的全域變數
+
+            //依照四則運算符號的選擇，進行加減乘除
+            switch (operation)
+            {
+                case "+":
+                    finalResults = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    finalResults = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    finalResults = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    finalResults = firstNumber / secondNumber;
+                    break;
+            }
+
+            txtNumber.Text = string.Format("{0:0.##########}", finalResults); //在輸入文字框中，顯示最後計算結果，並且轉換成格式化的字串內容
+
+            //重置所有全域變數
+            firstNumber = 0;
+            secondNumber = 0;
+            operation = "";
         }
     }
 }

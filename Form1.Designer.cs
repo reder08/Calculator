@@ -46,6 +46,8 @@
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnMinus = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnBackspace = new System.Windows.Forms.Button();
+            this.btnPercent = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClear
@@ -243,11 +245,35 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnBackspace
+            // 
+            this.btnBackspace.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnBackspace.Location = new System.Drawing.Point(12, 180);
+            this.btnBackspace.Name = "btnBackspace";
+            this.btnBackspace.Size = new System.Drawing.Size(145, 66);
+            this.btnBackspace.TabIndex = 18;
+            this.btnBackspace.Text = "<<";
+            this.btnBackspace.UseVisualStyleBackColor = true;
+            this.btnBackspace.Click += new System.EventHandler(this.btnBackspace_Click_1);
+            // 
+            // btnPercent
+            // 
+            this.btnPercent.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnPercent.Location = new System.Drawing.Point(12, 333);
+            this.btnPercent.Name = "btnPercent";
+            this.btnPercent.Size = new System.Drawing.Size(145, 66);
+            this.btnPercent.TabIndex = 19;
+            this.btnPercent.Text = "%";
+            this.btnPercent.UseVisualStyleBackColor = true;
+            this.btnPercent.Click += new System.EventHandler(this.btnPercent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPercent);
+            this.Controls.Add(this.btnBackspace);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnMinus);
             this.Controls.Add(this.btnPlus);
@@ -293,6 +319,8 @@
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.Button btnMinus;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnBackspace;
+        private System.Windows.Forms.Button btnPercent;
     }
 }
 

@@ -120,6 +120,34 @@ namespace Calculator
             operators = -1;
         }
 
+        private void btnBackspace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBackspace_Click_1(object sender, EventArgs e)
+        {
+            string text = txtNumber.Text;
+
+            if (text.Length > 1)
+            {
+                txtNumber.Text = text.Substring(0, text.Length - 1);
+            }
+            else
+            {
+                txtNumber.Text = "0";
+            }
+        }
+
+        private void btnPercent_Click(object sender, EventArgs e)
+        {
+            if (float.TryParse(txtNumber.Text, out float number))
+            {
+                number = number / 100;
+                txtNumber.Text = number.ToString("0.##########");
+            }
+        }
+
         private void btnEqual_Click(object sender, EventArgs e)
         {
             float finalResults = 0f; //宣告最後計算結果變數
